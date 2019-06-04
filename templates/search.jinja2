@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link href="https://fonts.googleapis.com/css?family=Allura&display=swap" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <style>
+      html{
+        height:100%;
+      }
+      #grad{
+        background: linear-gradient(to bottom right, #F1E5C0, #D9B855) no-repeat;
+      }
+      p{
+        font-family: 'Allura', cursive;
+        font-size:56px;
+        color:rgb(103,103,103);
+        text-align: center;
+        margin-bottom:0.5em;
+      }
+      #mysection {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height : 100vh;
+      }
+      .btn{
+        background-color:#62BD96;
+        border-radius:8px;
+        padding:25px 50px;
+        border:none;
+        text-decoration:none;
+        font-size:36px;
+        color:#fff;
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+        margin:10px;
+        width:350px;
+      }
+      .btn span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+      }
+
+      .btn span:after {
+        content: '\0020\00bb';
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        right: -20px;
+        transition: 0.5s;
+      }
+
+      .btn:hover span {
+        padding-right: 25px;
+      }
+
+      .btn:hover span:after {
+        opacity: 1;
+        right: 0;
+      }
+      #searchBar{
+        width:640px;
+        padding: 25px 50px;
+        border : 2px solid #62BD96;
+        background:transparent;
+        color:#62BD96;
+        font-size: 36px;
+        font-family: 'Allura', cursive;
+      }
+  </style>
+</head>
+<body id="grad">
+  <section id="mysection">
+    <div style="text-align:center;width:744px;">
+      <p id="joke">{{response}}</p>
+      <form id="target" method="POST" action="/search">
+        <input id="searchBar" style="display:none" type="text" name="topic" placeholder="Enter a topic. e.g. rain, dog, etc.">
+      </form>
+      <button id="btnRan" class="btn" style="vertical-align:middle">
+        <span onclick='window.location.href="{{url_for('randomJoke')}}"' style="font-family: 'Allura', cursive;">Random</span>
+      </button>
+      <button id="btnSearch" class="btn" style="vertical-align:middle">
+        <span style="font-family: 'Allura', cursive;">Search again</span>
+      </button>
+    </div>
+    </section>
+    <script>
+      $(document).ready(function(){
+        $("#btnSearch").click(function(){
+          if($("#searchBar").is(":hidden"))
+          {
+            $("#joke").hide("slow");
+            $("#searchBar").show("slow");
+            $("#btnRan").hide("fast");
+          }
+          else {
+            $("#target").submit();
+          }
+        });
+      });
+  </script>
+</body>
+</html>

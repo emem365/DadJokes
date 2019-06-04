@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link href="https://fonts.googleapis.com/css?family=Allura&display=swap" rel="stylesheet">
+    <style>
+      html{
+        height:100%;
+      }
+      #grad{
+        background: linear-gradient(to top left, #B9260D, #F58774) no-repeat;
+      }
+      p{
+        font-family: 'Allura', cursive;
+        font-size:140px;
+        color:#F2F2F2;
+        text-align: center;
+        margin-bottom:0.5em;
+      }
+      #mysection {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .btn{
+        background-color:#F39342;
+        border-radius:8px;
+        padding:25px 50px;
+        border:none;
+        text-decoration:none;
+        font-size:48px;
+        color:#fff;
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+        width:100%;
+      }
+      .btn span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+      }
+
+      .btn span:after {
+        content: '\0020\00bb';
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        right: -20px;
+        transition: 0.5s;
+      }
+
+      .btn:hover span {
+        padding-right: 25px;
+      }
+
+      .btn:hover span:after {
+        opacity: 1;
+        right: 0;
+      }
+  </style>
+</head>
+<body id="grad">
+  <section id="mysection">
+    <div style="text-align:center">
+      <p>Dad Jokes 2.0</p>
+      <a href="{{url_for('choose')}}" class="btn" style="vertical-align:middle">
+        <span style="font-family: 'Allura', cursive;">Get a Joke </span>
+      </a>
+    </div>
+    </section>
+</body>
+</html>
