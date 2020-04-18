@@ -45,10 +45,6 @@ python deploy.py
 * **Madhur Maurya** - *Creator* - [emem365](https://github.com/emem365)
 
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
 ## Acknowledgments
 
 * A huge thanks to https://icanhazdadjoke.com/ whose free api we use :)
